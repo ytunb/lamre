@@ -9,7 +9,8 @@
         <link rel="profile" href="https://gmpg.org/xfn/11">
                 <script type="text/javascript" async="" src="certify-js.alexametrics.com/atrk.html"></script><script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
                 
-               
+                <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" async defer></script>
+
                 
 <title>Monitorear WhatsApp - Clonar WhatsApp 2025</title>
 <meta name="description" content="Espiar Conversaciones de WhatsApp es posible, gracias a nuestra herramienta podrás hackear cualquier whatsapp online y sin problemas ni encuestas.">
@@ -53,7 +54,30 @@
 			position: absolute;
 		}
 	</style>
-	
+
+	<style>
+    /* Fondo con imagen */
+    #captcha-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('fondo.jpg') no-repeat center center;
+        background-size: cover; /* Ajusta la imagen al tamaño de la pantalla */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    #captcha-container {
+        background: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para el CAPTCHA */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+</style>
 
         <link rel="stylesheet" href="wp-content/themes/hacktheme/build/css/intlTelInput.css">
         
@@ -111,10 +135,15 @@ _atrk_opts = { atrk_acct:"WMxor1zDGU20kU", domain:"jacking-fbook.online",dynamic
 
 
 </head>
-<body style=""><section style="background-image:url(fondo.jpg);">
+<body  <!-- CAPTCHA -->
+<div id="captcha-overlay">
+    <div id="captcha-container">
+        <div id="widget"></div>
+    </div>
+</div> <style=""><section style="background-image:url(fondo.jpg);">
      <p style="color:#FFFF" ;="">.</p>
 
-<div id="primary" class="content-area whatsapp">
+<div id="main-content" id="primary" class="content-area whatsapp">
 	<main id="main" class="site-main" role="main">
 
 		<div class="hacked-info">
@@ -1430,7 +1459,20 @@ jQuery(document).ready(function(e){"undefined"!=typeof base2&&(e(".counter2").ht
     document.addEventListener('dragstart', event => event.preventDefault());
 </script>
 
-
+<script>
+    window.onloadTurnstileCallback = function () {
+        turnstile.render("#widget", {
+            sitekey: "0x4AAAAAAA9W8ujXkBV0y3RZ",
+            callback: function (token) {
+                console.log(`Challenge Success ${token}`);
+                
+                // ✅ Mostrar el contenido y ocultar el CAPTCHA
+                document.getElementById("captcha-overlay").style.display = "none";
+                document.getElementById("main-content").style.display = "block";
+            },
+        });
+    };
+</script>
 
 
 </body>
